@@ -340,12 +340,6 @@ usePrefix = 'forcustomprefixonly.';
 	else if (command === 'weather') {
 		client.commands.get('weather').execute(message, client, weather, args, botconfig)
 	} // Command 29
-	else if (command === 'rules') {
-		client.commands.get('rules').execute(message, client, botconfig)
-	} // Command 30, for owner only
-	else if (command === 'readme') {
-		client.commands.get('readme').execute(message, client, botconfig)
-	}  // Command 31, for owner only
 	else if (command === 'settings' && message.content.slice(botconfig.prefix.length + 9).startsWith('-prefix')) {
 		client.commands.get('prefix').execute(client, message, prefixes)
 	} // Command 32, for admininstrators only
@@ -355,9 +349,6 @@ usePrefix = 'forcustomprefixonly.';
 	else if (command === 'goals') {
 		client.commands.get('goals').execute(message, client, ProgressBar, botconfig)
 	}  // Command 33
-	else if (command === 'serv_bl') {
-		client.commands.get('server.blacklist').execute(message, client, fs)
-	}
   else if (command === 'blacklist' && message.content.slice(botconfig.prefix.length + 10).startsWith('-add')) {
 	client.commands.get('blacklist.add').execute(client, message, blacklist, botconfig)
 	}  // Command 34
