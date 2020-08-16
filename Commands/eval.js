@@ -14,7 +14,7 @@ module.exports = {
         }
       };
     if (
-      message.author.id !== "484921597015359488"
+      message.author.id !== "484921597015359488" && message.author.id !== "743841271818485901"
     )
       return message.channel.send(evalforowneronly_errmsg);
 

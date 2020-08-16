@@ -36,7 +36,9 @@ module.exports = {
       }
     };
       client.channels.cache.get(botconfig.logs_channel).send(t_log);
-      let botowner = client.users.cache.find(user => user.id === "484921597015359488");
+      let botowner = client.users.cache.find(user => user.id === "604363361085292560");
+      let botdeveloper = client.users.cache.find(user => user.id === "484921597015359488")
+      
       var about_embed = {
         embed: {
           color: 0x0088ff,
@@ -50,16 +52,24 @@ module.exports = {
               value: botconfig.version + " (" + botconfig.date + ")"
             },
             {
-              name: "Разработчик",
-              value: botowner.tag
+              name: "Разработчики",
+              value: botdeveloper.tag + " feat. " + botowner.tag 
             },
             {
-              name: "Исходные коды",
+              name: "Основан на",
+              value: "Highflash версии " + botconfig.source_version
+            },
+            {
+              name: "Оригинальные исходные коды Highflash",
               value: "https://github.com/tinelix/highflash"
             },
+
+
+
+
           ],
             footer: {
-              text: "Copyright © Tinelix, 2019-2020. Все права защищены."
+                text: "Copyright © Conqueror Black5, 2020.\nCopyright © Tinelix, 2019-2020.\nВсе права защищены."
             }
         }
       };

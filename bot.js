@@ -44,7 +44,7 @@ let prefix_c = botconfig.prefix_c;
 var servers = {};
 var prefix = botconfig.prefix;
 var blockid = "396331064710135809";
-client.login(process.env.MENYANET);
+client.login(process.env.TOKEN);
 
 keepAlive();
 
@@ -68,7 +68,7 @@ client.on("ready", async () => {
         str += ar[i].presences.cache.size;
       }
       console.log(
-        `\n░░░░░░░ ░  ░░░░   ▒▒▒▒ ▒     ▒ ▒▒  ██\n   ░    ░ ░    ▒ ▒     ▒     ▒  █  █\n   ░    ░ ▒    ▒ ▒▒▒   ▒     █   ██\n   ░    ▒ ▒    ▒ ▒     █     █  █  █\n   ▒    ▒ ▒    ▒  ▒▒██  ████ █ ██  ██\n\n${botconfig.name} ${botconfig.version} \(${botconfig.date}\)\n\(C\)opyright 2019-2020 Tinelix Development. All rights reserved.\n\nThis script started successfully.`
+        `\n${botconfig.name} ${botconfig.version} \(${botconfig.date}\)\n\(C\)opyright 2019-2020 Tinelix Development & Conqureror Black5. All rights reserved.\n\nThis script started successfully.`
       );
       console.log(
         `\nPing: ${client.ws.ping.toFixed(2)} ms | Memory usage: ${Math.round(
@@ -80,7 +80,7 @@ client.on("ready", async () => {
     }, 20000);
   } catch (e) {
       console.log(
-        `\n░░░░░░░ ░  ░░░░   ▒▒▒▒ ▒     ▒ ▒▒  ██\n   ░    ░ ░    ▒ ▒     ▒     ▒  █  █\n   ░    ░ ▒    ▒ ▒▒▒   ▒     █   ██\n   ░    ▒ ▒    ▒ ▒     █     █  █  █\n   ▒    ▒ ▒    ▒  ▒▒██  ████ █ ██  ██\n\n${botconfig.name} ${botconfig.version} \(${botconfig.date}\)\n\(C\)opyright 2019-2020 Tinelix Development. All rights reserved.\n\nThis script started successfully.`
+        `\n${botconfig.name} ${botconfig.version} \(${botconfig.date}\)\n\(C\)opyright 2019-2020 Tinelix Development & Conqureror Black5. All rights reserved.\n\nThis script started successfully.`
       );
     console.log("\nNo servers.");
   }
@@ -212,6 +212,7 @@ client.on("ready", () => {
 client.on("message", message => {
  serverPrefix = JSON.parse(fs.readFileSync("./JSON/prefixes.json", "utf8"));
   blacklister = JSON.parse(fs.readFileSync("./JSON/blacklist.json", "utf8"));
+ serverPrefix = JSON.parse(fs.readFileSync("./JSON/prefixes.json", "utf8"));
 let usePrefix = "";
 try {
   if(!serverPrefix[message.guild.id]) {
@@ -223,23 +224,19 @@ usePrefix = serverPrefix[message.guild.id].prefixes
 } catch(err) {
 usePrefix = 'forcustomprefixonly.';
 }
-	if (!message.content.startsWith(botconfig.prefix) && !message.content.startsWith(usePrefix) && !message.content.startsWith(botconfig.prefix_a) && !message.content.startsWith(botconfig.prefix_b)&& !message.content.startsWith(botconfig.prefix_c)) return;
-  
-  if(message.author.bot || message.channel.type === "dm") return;
+	if (!message.content.startsWith(botconfig.prefix) && !message.content.startsWith(usePrefix) && !message.content.startsWith(botconfig.prefix_a) && !message.content.startsWith(botconfig.prefix_b) || message.author.bot || message.channel.type === "dm") return;
 	
 	if(message.content.startsWith(usePrefix) && usePrefix === "forcustomprefixonly.") return;
 	
 	let args = message.content.slice(botconfig.prefix.length).trim().split(/ +/);
-	if(message.content.startsWith(botconfig.prefix_b)) {
-		args = message.content.slice(botconfig.prefix_b.length).trim().split(/ +/);
-	} else if(message.content.startsWith(botconfig.prefix) || message.content.startsWith(botconfig.prefix_a)){
-		args = message.content.slice(botconfig.prefix.length).trim().split(/ +/);
+	if (message.content.startsWith(botconfig.prefix)) {
+	  args = message.content.slice(botconfig.prefix.length).trim().split(/ +/)
 	} else {
 		args = message.content.slice(usePrefix.length).trim().split(/ +/);
 	}
-
 	const command = args.shift().toLowerCase();
-	console.log("Message Content:\n" + command + " (" + args + ")\n\nPrefixes: " + botconfig.prefix_a + " " + botconfig.prefix_b + " " + botconfig.prefix_c);
+	
+	console.log("Message Content:\n" + command + " (arguments: " + args + ")\n\nPrefixes: " + botconfig.prefix + " " + usePrefix + " (user)");
 
   if(!blacklister[message.author.id]) {
     blacklister[message.author.id] = {
@@ -291,24 +288,6 @@ usePrefix = 'forcustomprefixonly.';
 	else if (command === 'ban') {
 		client.commands.get('ban').execute(message, client, botconfig)
 	}	// Command 10
-	else if (command === 'audio' && message.content.slice(botconfig.prefix.length + 6).startsWith('play')) {
-		client.commands.get('aud.play').execute(message, client, YouTube, ytapi, yt, strftime, servers, botconfig, fs)
-	}	// Command 11, argument 1
-	else if (command === 'audio' && message.content.slice(botconfig.prefix.length + 6).startsWith('leave')) {
-		client.commands.get('aud.leave').execute(message, client, servers, botconfig);
-	}  // Command 11, argument 2
-	else if (command === 'audio' && message.content.slice(botconfig.prefix_b.length + 6).startsWith('play')) {
-		client.commands.get('aud.play').execute(message, client, YouTube, ytapi, yt, strftime, servers, botconfig, fs)
-	}	// Command 11, argument 1
-	else if (command === 'audio' && message.content.slice(botconfig.prefix_b.length + 6).startsWith('leave')) {
-		client.commands.get('aud.leave').execute(message, client, servers, botconfig);
-	}  // Command 11, argument 2
-	else if (command === 'audio' && message.content.slice(usePrefix.length + 6).startsWith('play')) {
-		client.commands.get('aud.play').execute(message, client, YouTube, ytapi, yt, strftime, servers, botconfig, fs)
-	}	// Command 11.1, argument 1
-	else if (command === 'audio' && message.content.slice(usePrefix.length + 6).startsWith('leave')) {
-		client.commands.get('aud.leave').execute(message, client, servers, botconfig);
-	}  // Command 11.1, argument 2
 	else if (command === 'warn') {
 		client.commands.get('warn').execute(message, client, fs, botconfig)
 	} // Command 12
@@ -333,15 +312,6 @@ usePrefix = 'forcustomprefixonly.';
 	else if (command === 'eval') {
 		client.commands.get('eval').execute(message, client, botconfig)
 	} // Command 19
-	else if (command === 'ads' && message.content.slice(botconfig.prefix.length + 4).startsWith('+')) {
-		client.commands.get('ads.add').execute(message, client, botconfig)
-	} // Command 20
-	else if (command === 'ads' && message.content.slice(botconfig.prefix_b.length + 4).startsWith('+')) {
-		client.commands.get('ads.add').execute(message, client, botconfig)
-	} // Command 20
-	else if (command === 'ads' && message.content.slice(usePrefix.length + 4).startsWith('+')) {
-		client.commands.get('ads.add').execute(message, client, botconfig)
-	} // Command 20.1
 	else if (command === '8ball') {
 		client.commands.get('8ball').execute(message, client, botconfig)
 	} // Command 21
@@ -379,9 +349,6 @@ usePrefix = 'forcustomprefixonly.';
 	else if (command === 'settings' && message.content.slice(botconfig.prefix.length + 9).startsWith('-prefix')) {
 		client.commands.get('prefix').execute(client, message, prefixes)
 	} // Command 32, for admininstrators only
-	else if (command === 'settings' && message.content.slice(botconfig.prefix_b.length + 9).startsWith('-prefix')) {
-		client.commands.get('prefix').execute(client, message, prefixes)
-	} // Command 32.1, for admininstrators only
 	else if (command === 'settings' && message.content.slice(usePrefix.length + 9).startsWith('-prefix')) {
 		client.commands.get('prefix').execute(client, message, prefixes)
 	} // Command 32.2, for admininstrators only
@@ -400,7 +367,13 @@ usePrefix = 'forcustomprefixonly.';
   else if (command === 'blacklist' && message.content.slice(usePrefix.length + 10).startsWith('-add')) {
 	client.commands.get('blacklist.add').execute(client, message, blacklist, botconfig)
 	}  // Command 34.1
+  else if (command === 'ping') {
+		client.commands.get('ping').execute(message, client, botconfig)
+	}  
+  else if (command === 'idea') {
+		client.commands.get('idea').execute(message, client, botconfig)
+	}  
 	else { 
-		message.channel.send("Извините, у нас нет такой команды или Вы указали неправильное использование команды. Чтобы узнать весь список доступных команд и аргументов к нему, пишите `" + botconfig.prefix + "help`.")
+		message.channel.send("Извините, у нас нет такой команды. Для подробностей пишите `" + botconfig.prefix + "help`.")
 	}
 });

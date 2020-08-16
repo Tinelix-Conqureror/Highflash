@@ -75,12 +75,15 @@ module.exports = {
     message.channel.send(supportbug_embed);
 			client.channels.cache.get(botconfig.logs_channel).send(t_log);
 
-let str = "<@484921597015359488>"; //Just assuming some random tag. 
+let str = "484921597015359488"; 
 
-//removing any sign of < @ ! >... 
-//the exclamation symbol comes if the user has a nickname on the server. 
-let id = str.replace(/[<@!>]/g, ''); 
+      client.users.fetch(str).then(user => {
+        user.send(reportmessage_embed);
+      });
 
-client.users.fetch(id) 
-    .then(user => {user.send(reportmessage_embed)})
+      let str2 = "604363361085292560"
+
+      
+      client.users.fetch(str2).then(user => {user.send(reportmessage_embed)}
+        )
 }};

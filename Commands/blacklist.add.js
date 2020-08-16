@@ -18,10 +18,10 @@ module.exports = {
 			icon_url: client.user.avatarURL()
 		},
 		description:
-			`Вы не можете выполнить эту команду, поскольку занести в черный список может только сам владелец бота.`
+			`Вы не можете выполнить эту команду, поскольку занести в черный список может только сам владелец и разработчик бота.`
 		}
 	};
-	if (message.author.id !== "484921597015359488") return message.channel.send(blerrEmbed);
+	if (message.author.id !== "484921597015359488" || message.author.id !== "604363361085292560") return message.channel.send(blerrEmbed);
 	try {
 		console.log(args[0].length);
 	} catch(ex) {

@@ -46,7 +46,7 @@ module.exports = {
       } else {
         parentes = message.channel.parent;
       }
-      if (message.channel.nsfw !== false) {
+      if (message.channel.nsfw == false) {
         nsfwwarn = "";
       } else {
         nsfwwarn = "🔞 **На этом канале может содержать контент 18+. Так что, поосторожнее.**";
