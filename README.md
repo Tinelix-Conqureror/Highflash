@@ -13,7 +13,7 @@ mathjs | weather-js | snekfetch | node-superfetch</code>
 <br>Tinelix: dydcoder#7004
 <br>ConqurerorBlack: MsDos#4853
 <p>---<p>
-RUS: <b>Tinelix Highflash - бот, разработанный Tinelix и ConqurerorBlack.</b>
+RUS: <b>Tinelix Highflash - бот, разработанный Tinelix и ConqurerorBlack, and Highflash fork.</b>
 <p>Прошу прощения, там присутствует только русская локализация. Хотя никто не мешает изменить локализацию, усовершенствовать код.
 <p><p><h2>Используемы библиотеки (обязательно)</h2>  
 <code>discord.js | foreach-timeout | os <br>
