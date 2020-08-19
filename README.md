@@ -1,3 +1,4 @@
+<iframe src="https://discordapp.com/widget?id=734504970778312858&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 ENG: <b>London Monitor - bot, developed by Tinelix & ConqurerorBlack.</b>
 <p><img src="https://raw.githubusercontent.com/Tinelix-ConqurerorBlack/London-Monitor/master/Screenshots/001.png"></img>
 <p><img src="https://raw.githubusercontent.com/Tinelix-ConqurerorBlack/London-Monitor/master/Screenshots/002.png"></img>
