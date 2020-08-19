@@ -11,7 +11,7 @@ mathjs | weather-js | snekfetch | node-superfetch</code>
 
 <p><p><h2>Authors (contacts on Discord):</h2>
 <br>Tinelix: dydcoder#7004
-<br>ConqurerorBlack: MsDos#4853
+<br>ConqurerorBlack: ℂ𝕠𝕟𝕢𝕦𝕖𝕣𝕠𝕣𝔹𝕝𝕒𝕔𝕜#2185
 <p>---<p>
 RUS: <b>Tinelix Highflash - бот, разработанный Tinelix и ConqurerorBlack, and Highflash fork.</b>
 <p>Прошу прощения, там присутствует только русская локализация. Хотя никто не мешает изменить локализацию, усовершенствовать код.
@@ -24,4 +24,5 @@ mathjs | weather-js | snekfetch | node-superfetch</code>
 <a href="https://github.com/tinelix/Highflash/wiki">Наша вики-страница</a>
 <p><p><h2>Авторы (контакты в Discord):</h2>
 <br>Tinelix: dydcoder#7004
-<br>ConqurerorBlack: MsDos#4853
+<br>ConqurerorBlack:ℂ𝕠𝕟𝕢𝕦𝕖𝕣𝕠𝕣𝔹𝕝𝕒𝕔𝕜#2185
+
